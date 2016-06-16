@@ -19,17 +19,20 @@
     <!-- Arrow -->
     <img id = "arrow" src = "Arrow.png">
 
+    <!-- Bottom -->
+    <img id = "bottom" src = "bottom.png">
+
     <!-- Environment Textures -->
-    <img id = "bed_01" src = "1bed.png">
-    <img id = "bed_02" src = "2bed.png">
-    <img id = "bath_01" src = "1bath.png">
-    <img id = "dine_01" src = "1dine.png">
-    <img id = "hall_01" src = "1hall.png">
-    <img id = "hall_02" src = "2hall.png">
-    <img id = "kitch_01" src = "1kitch.png">
-    <img id = "live_01" src = "1live.png">
-    <img id = "porch_01" src = "1porch.png">
-    <img id = "garden_01" src = "1garden.png">
+    <img id = "bed_01" src = "1bed.jpg">
+    <img id = "bed_02" src = "2bed.jpg">
+    <img id = "bath_01" src = "1bath.jpg">
+    <img id = "dine_01" src = "1dine.jpg">
+    <img id = "hall_01" src = "1hall.jpg">
+    <img id = "hall_02" src = "2hall.jpg">
+    <img id = "kitch_01" src = "1kitch.jpg">
+    <img id = "live_01" src = "1live.jpg">
+    <img id = "porch_01" src = "1porch.jpg">
+    <img id = "garden_01" src = "1garden.jpg">
 
     <!-- Label Textures -->
     <img id = "labeltex1" src = "Labels01.png">
@@ -339,10 +342,17 @@
 
   <!--base -->
 
-    <a-cylinder id = "cylinderbase"
-      color = "blue" radius = ".7" height = ".5"
-      position = "0 -1 0" rotation = "0 0 0" scale = "1 1 1">
-    </a-cylinder>
+    <a-box id = "plane"
+      src = "#bottom"
+      transparent = "true"
+      position = "0 -.2 0" rotation = "0 0 0" scale = "1 1 1">
+      <a-animation attribute="rotation"
+               dur="90000"
+               fill="forwards"
+               to="0 360 0"
+               easing = "linear"
+               repeat="indefinite"></a-animation>
+    </a-box>
 
   <!-- sky environments-->
 
