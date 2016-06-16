@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ZeZe</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <meta name="description" content="ZeZe - Hotel">
+    <script src="aframe.js"></script>
+    <script src = "three.min.js"></script>
+  </head>
+  <body onload="start()">
+
+  <!-- A-Frame -->
+    <a-scene vr-mode-ui="enabled: false">
+
+  <!-- Assets -->
+  <a-assets>
+
+    <!-- Arrow -->
+    <img id = "arrow" src = "Arrow.png">
+
+    <!-- Environment Textures -->
+    <img id = "bed_01" src = "1bed.png">
+    <img id = "bed_02" src = "2bed.png">
+    <img id = "bath_01" src = "1bath.png">
+    <img id = "dine_01" src = "1dine.png">
+    <img id = "hall_01" src = "1hall.png">
+    <img id = "hall_02" src = "2hall.png">
+    <img id = "kitch_01" src = "1kitch.png">
+    <img id = "live_01" src = "1live.png">
+    <img id = "porch_01" src = "1porch.png">
+    <img id = "garden_01" src = "1garden.png">
+
+    <!-- Label Textures -->
+    <img id = "labeltex1" src = "Labels01.png">
+    <img id = "labeltex3" src = "Labels03.png">
+    <img id = "labeltex4" src = "Labels04.png">
+    <img id = "labeltex5" src = "Labels05.png">
+    <img id = "labeltex6" src = "Labels06.png">
+    <img id = "labeltex7" src = "Labels07.png">
+    <img id = "labeltex10" src = "Labels10.png">
+    <img id = "labeltex11" src = "Labels11.png">
+    <img id = "labeltex13" src = "Labels13.png">
+    <img id = "labeltex14" src = "Labels14.png">
+    <img id = "labeltex15" src = "Labels15.png">
+    <img id = "labeltex16" src = "Labels16.png">
+    <img id = "labeltex17" src = "Labels17.png">
+    <img id = "labeltex18" src = "Labels18.png">
+    <img id = "labeltex19" src = "Labels19.png">
+    <img id = "labeltex20" src = "Labels20.png">
+    <img id = "labeltex21" src = "Labels21.png">
+    <img id = "labeltex22" src = "Labels22.png">
+    <img id = "labeltex27" src = "Labels27.png">
+    <img id = "labeltex28" src = "Labels28.png">
+    <img id = "labeltex29" src = "Labels29.png">
+    <img id = "labeltex30" src = "Labels30.png">
+
+  </a-assets>
+
+  <!-- stats -->
+
+
+  <!-- geometry -->
+
+<!-- Nav -->
+  <!-- bedroom_01 -->
+
+  <a-plane id = "bed1ToDineNav"
+    src = "#arrow"
+    transparent = "true"
+    position = "0 -100 0" rotation = " -90 90 90" scale = " .5 .5 .5">
+  </a-plane>
+
+  <!-- bedroom_02 -->
+
+    <a-plane id = "bed2ToKitchNav"
+      src = "#arrow"
+      transparent = "true"
+      position = "0 -100 0" rotation = " -90 90 90" scale = " .5 .5 1">
+    </a-plane>
+
+  <!-- kitchen -->
+
+    <a-plane id = "kitchToBed2Nav"
+      src = "#arrow"
+      transparent = "true"
+      position = "0 -100 0" rotation = " -90 180 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "kitchToHall2Nav"
+      src = "#arrow"
+      transparent = "true"
+      position = "0 -100 0" rotation = " -90 90 8" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "kitchToPorchNav"
+      src = "#arrow"
+      transparent = "true"
+      position = "0 -100 0" rotation = " -90 0 -90" scale = " .5 .5 .5">
+    </a-plane>
+
+    <!-- hall_01 -->
+
+    <a-plane id = "hall1ToDineNav"
+      src = "#arrow"
+      transparent = "true"
+      position = "0 -100 0" rotation = " 270 0 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "hall1ToLiveNav"
+      src = "#arrow"
+      transparent = "true"
+      position = "0 -100 0" rotation = " -90 270 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <!-- hall_02 -->
+
+    <a-plane id = "hall2ToDineNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 90 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "hall2ToBathNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 0 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "hall2ToKitchNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 -90 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <!-- porch -->
+    <a-plane id = "porchToKitchNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 -90 180" scale = " .5 .5 5">
+    </a-plane>
+
+    <a-plane id = "porchToGardenNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 0 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <!-- garden -->
+
+    <a-plane id = "gardenToPorchNav"
+    src = "#arrow"
+    transparent = "true"
+    position = "0 -100 0" rotation = " -90 0 40" scale = " .5 .5 .5">
+  </a-plane>
+
+    <!-- bathroom -->
+    <a-plane id = "bathToHall2Nav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 100 0" rotation = " -90 15 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <!-- dining -->
+    <a-plane id = "dineToHall1Nav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 -90 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "dineToLiveNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 -90 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "dineToBed1Nav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 -90 90" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "dineToHall2Nav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 90 0" scale = " .5 .5 .5">
+    </a-plane>
+
+    <!-- living room -->
+
+    <a-plane id = "liveToHall1Nav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 -90 180" scale = " .5 .5 .5">
+    </a-plane>
+
+    <a-plane id = "liveToDineNav"
+    src = "#arrow"
+    transparent = "true"
+      position = "0 -100 0" rotation = " -90 0 0" scale = " .5 .5 .5">
+    </a-plane>
+
+<!-- Navigation End -->
+
+
+<!-- Label -->
+
+	  <!-- Hall -->
+
+    <a-image id = "hall1label1"
+    src="#labeltex1"
+    position = "0 -100 0" rotation = " 0 180 0 " scale = "1 .29 1">
+    </a-image>
+
+
+	  <!-- Living Room -->
+
+	  <a-image id = "livelabel3"
+    src="#labeltex3"
+    position = "0 -100 0" rotation = " 0 180 0 " scale = "1 .29 1">
+    	</a-image>
+
+    <a-image id = "livelabel4"
+    src="#labeltex4"
+    position = "0 -100 0" rotation = " 0 280 0 " scale = "1.44 .29 1">
+    </a-image>
+
+    <a-image id = "livelabel5"
+    src="#labeltex5"
+    position = "0 -100 0" rotation = " 0 5 0 " scale = "1.475 .29 1">
+    </a-image>
+
+
+	  <!-- Dining Room -->
+
+	  <a-image id = "dinelabel6"
+    src="#labeltex6"
+    position = "0 -100 0" rotation = " 0 270 0 " scale = "1.29 .29 1">
+    </a-image>
+
+    <a-image id = "dinelabel7"
+    src="#labeltex7"
+    position = "0 -100 0" rotation = " 0 180 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "dinelabel10"
+    src="#labeltex10"
+    position = "0 -100 0" rotation = " 0 90 0 " scale = "1.15 .29 1">
+    </a-image>
+
+    <a-image id = "dinelabel11"
+    src="#labeltex11"
+    position = "0 -100 0" rotation = " 0 90 0 " scale = "1.117 .29 1">
+    </a-image>
+
+	  <a-image id = "dinelabel13"
+    src="#labeltex13"
+    position = "0 -100 0" rotation = " 0 180 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "dinelabel14"
+    src="#labeltex14"
+    position = "0 -100 0" rotation = " 0 -0 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "dinelabel15"
+    src="#labeltex15"
+    position = "0 -100 0" rotation = " 0 0 0 " scale = "1.128 .29 1">
+    </a-image>
+
+    <a-image id = "dinelabel16"
+    src="#labeltex16"
+    position = "0 -100 0" rotation = " 0 0 0 " scale = "1 .29 1">
+    </a-image>
+
+
+	  <!-- Bedroom1 -->
+
+    <a-image id = "bed1label17"
+    src="#labeltex17"
+    position = "0 -100 0" rotation = " 0 90 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "bed1label18"
+    src="#labeltex18"
+    position = "0 -100 0" rotation = " 0  0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "bed1label19"
+    src="#labeltex19"
+    position = "0 -100 0" rotation = " 0 269 0 " scale = "1.21 .29 1">
+    </a-image>
+
+
+<!-- Bathroom -->
+
+	  <a-image id = "bathlabel20"
+    src="#labeltex20"
+    position = "0 -100 0" rotation = " 0 -86 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "bathlabel21"
+    src="#labeltex21"
+    position = "0 -100 0" rotation = " 0 192 0 " scale = "1.11 .29 1">
+    </a-image>
+
+<!-- Kitchen -->
+
+<a-image id = "kitchlabel22"
+    src="#labeltex22"
+    position = "0 -100 0" rotation = " 0 90 0 " scale = "1.357 .29 1">
+    </a-image>
+
+<!-- Bedroom 2 -->
+
+ <a-image id = "bed2label27"
+    src="#labeltex27"
+    position = "0 -100 0" rotation = " 0 90 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "bed2label28"
+    src="#labeltex28"
+    position = "0 -100 0" rotation = " 0  0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "bed2label29"
+    src="#labeltex29"
+    position = "0 -100 0" rotation = " 0 270 0 " scale = "1 .29 1">
+    </a-image>
+
+    <a-image id = "bed2label30"
+    src="#labeltex30"
+    position = "0 -100 0" rotation = " 0 270 0 " scale = "2 .29 1">
+    </a-image>
+
+<!-- Label End -->
+
+
+
+  <!--base -->
+
+    <a-cylinder id = "cylinderbase"
+      color = "blue" radius = ".7" height = ".5"
+      position = "0 -1 0" rotation = "0 0 0" scale = "1 1 1">
+    </a-cylinder>
+
+  <!-- sky environments-->
+
+    <a-sky id = "envEntire"
+    src = "#hall_01">
+    </a-sky>
+
+  <!-- camera -->
+  <a-entity id = "head" rotation = "0 45 0">
+    <a-camera  position = "0 1.8 0" fov = "90">
+      <a-cursor color = "#A0D2B7">
+    </a-camera>
+  </a-entity>
+  </a-scene>
+
+  <!-- Javascript -->
+
+<script>
+
+//variables begin
+
+var camHead = document.querySelector('#head');
+
+var camDefault = new THREE.Vector3( 0, 45, 0);
+var rotAround = new THREE.Vector3(0, 180, 0);
+
+//bed_01 nav
+var B1toD = document.querySelector('#bed1ToDineNav');
+
+//bed_02 nav
+var B2toK = document.querySelector('#bed2ToKitchNav');
+
+//kitch nav
+var KtoB2 = document.querySelector('#kitchToBed2Nav');
+var KtoH2 = document.querySelector('#kitchToHall2Nav');
+var KtoP = document.querySelector('#kitchToPorchNav');
+
+//hall_01 nav
+var H1toD = document.querySelector('#hall1ToDineNav');
+var H1toL = document.querySelector('#hall1ToLiveNav');
+
+//hall_02 nav
+
+var H2toD = document.querySelector('#hall2ToDineNav');
+var H2toB = document.querySelector('#hall2ToBathNav');
+var H2toK = document.querySelector('#hall2ToKitchNav');
+
+//live nav
+
+var LtoH1 = document.querySelector('#liveToHall1Nav');
+var LtoD = document.querySelector('#liveToDineNav');
+
+//dine nav
+
+var DtoH1 = document.querySelector('#dineToHall1Nav');
+var DtoB1 = document.querySelector('#dineToBed1Nav');
+var DtoL = document.querySelector('#dineToLiveNav');
+var DtoH2 = document.querySelector('#dineToHall2Nav');
+
+//bath nav
+
+var BtoH2 = document.querySelector('#bathToHall2Nav');
+
+//porch nav
+
+var PtoK = document.querySelector('#porchToKitchNav');
+var PtoG = document.querySelector('#porchToGardenNav');
+
+//garden nav
+
+var GtoP = document.querySelector('#gardenToPorchNav');
+
+// environment
+
+var environment = document.querySelector('#envEntire');
+
+//nav pos
+
+var PosOff = new THREE.Vector3( 0, -100, 0);
+
+//labels
+
+var L1 = document.querySelector('#hall1label1');
+
+var L3 = document.querySelector('#livelabel3');
+
+var L4 = document.querySelector('#livelabel4');
+
+var L5 = document.querySelector('#livelabel5');
+
+var L6 = document.querySelector('#dinelabel6');
+
+var L7 = document.querySelector('#dinelabel7');
+
+var L10 = document.querySelector('#dinelabel10');
+
+var L11 = document.querySelector('#dinelabel11');
+
+var L13 = document.querySelector('#dinelabel13');
+
+var L14 = document.querySelector('#dinelabel14');
+
+var L15 = document.querySelector('#dinelabel15');
+
+var L16 = document.querySelector('#dinelabel16');
+
+var L17 = document.querySelector('#bed1label17');
+
+var L18 = document.querySelector('#bed1label18');
+
+var L19 = document.querySelector('#bed1label19');
+
+var L20 = document.querySelector('#bathlabel20');
+
+var L21 = document.querySelector('#bathlabel21');
+
+var L22 = document.querySelector('#kitchlabel22');
+
+var L27 = document.querySelector('#bed2label27');
+
+var L28 = document.querySelector('#bed2label28');
+
+var L29 = document.querySelector('#bed2label29');
+
+var L30 = document.querySelector('#bed2label30');
+
+
+
+//variables end
+
+//Mouse Event Begin
+
+B1toD.addEventListener('mouseenter', bed1ToDine);
+
+B2toK.addEventListener('mouseenter',bed2ToKitch);
+
+KtoB2.addEventListener('mouseenter', kitchToBed2);
+KtoH2.addEventListener('mouseenter', kitchToHall2);
+KtoP.addEventListener('mouseenter', kitchToPorch);
+
+H1toD.addEventListener('mouseenter',hall1ToDine);
+H1toL.addEventListener('mouseenter',hall1ToLive);
+
+H2toD.addEventListener('mouseenter', hall2ToDine);
+H2toB.addEventListener('mouseenter', hall2ToBath);
+H2toK.addEventListener('mouseenter', hall2ToKitch);
+
+LtoH1.addEventListener('mouseenter', liveToHall1);
+LtoD.addEventListener('mouseenter', livetoDine);
+
+DtoH1.addEventListener('mouseenter',dineToHall1);
+DtoB1.addEventListener('mouseenter',dineToBed1);
+DtoL.addEventListener('mouseenter',dineToLive);
+DtoH2.addEventListener('mouseenter',dineToHall2);
+
+BtoH2.addEventListener('mouseenter', bathToHall2);
+
+PtoK.addEventListener('mouseenter', porchToKitch);
+PtoG.addEventListener('mouseenter', porchToGarden);
+
+GtoP.addEventListener('mouseenter', gardenToPorch);
+
+//navigation end
+
+
+//function begin
+
+//start
+
+function start(){
+
+  environment.setAttribute('src', '#hall_01');
+
+//navigation
+  H1toL.setAttribute('position',{
+    x: 1,
+    y: 0,
+    z: 0
+  });
+
+  H1toD.setAttribute('position',{
+    x: -.2,
+    y: 0,
+    z: -3
+  });
+
+    //labels
+  L1.setAttribute('position',{
+	x: 1,
+	y: .9,
+	z:	4
+});
+
+}
+
+//garden
+
+function gardenToPorch() {
+  environment.setAttribute('src', '#porch_01');
+  GtoP.setAttribute('position', PosOff);
+
+PtoK.setAttribute('position', {
+  x: -1.9,
+  y: 0,
+  z: .3
+});
+
+PtoG.setAttribute('position', {
+  x: 2,
+  y: 0,
+  z: 0
+});
+
+}
+
+//porch
+
+function porchToKitch () {
+environment.setAttribute('src', '#kitch_01');
+PtoK.setAttribute('position', PosOff);
+PtoG.setAttribute('position', PosOff);
+
+    //navigation
+KtoB2.setAttribute('position', {
+  x: 0.1 ,
+  y: 0,
+  z: 1
+});
+KtoH2.setAttribute('position', {
+  x: -3.5 ,
+  y: 0,
+  z: .5
+});
+
+KtoP.setAttribute('position', {
+  x: .8 ,
+  y: 0,
+  z: -2.5
+});
+
+L22.setAttribute('position',{
+    x: -4,
+    y: 2.6,
+    z: -1
+});
+
+    //labels
+L22.setAttribute('position', {
+	  x: -4,
+	  y: 2.6,
+	  z: -1});
+
+}
+
+function porchToGarden () {
+environment.setAttribute('src', '#garden_01');
+PtoK.setAttribute('position', PosOff);
+PtoG.setAttribute('position', PosOff);
+
+GtoP.setAttribute('position',{
+  x: -2,
+  y: 0,
+  z: -2
+});
+
+}
+
+
+//bedroom_01
+
+function bed1ToDine () {
+  environment.setAttribute('src', '#dine_01');
+  B1toD.setAttribute('position', PosOff);
+
+  L17.setAttribute('position', PosOff);
+  L18.setAttribute('position', PosOff);
+  L19.setAttribute('position', PosOff);
+
+//navigation
+  DtoL.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: -.35
+  });
+
+  DtoH1.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: 1.45
+  });
+  DtoH2.setAttribute('position', {
+    x:-4,
+    y: 0,
+    z: -.5
+  });
+  DtoB1.setAttribute('position', {
+    x:-.15,
+    y: 0,
+    z: -1.3
+  });
+
+ //labels
+ L6.setAttribute('position', {
+     x: 3,
+     y: 1.1,
+     z: 3
+ });
+
+ L7.setAttribute('position', {
+     x: 2,
+     y: 1.7,
+     z: 3.5
+ });
+
+ L10.setAttribute('position', {
+     x: -3,
+     y: .9,
+     z: 1.1
+ });
+
+ L11.setAttribute('position', {
+     x: -2,
+     y: .9,
+     z: 2.6
+ });
+
+ L13.setAttribute('position', {
+     x: -.45,
+     y: .3,
+     z: 1
+ });
+
+ L14.setAttribute('position', {
+     x: -2.1,
+     y: 2.19,
+     z: -1
+ });
+
+ L15.setAttribute('position', {
+     x: 1.81,
+     y: 2.19,
+     z: -1
+ });
+
+ L16.setAttribute('position', {
+     x: 1.81,
+     y: 1.25,
+     z: -1
+ });
+}
+
+//bedroom_02
+function bed2ToKitch () {
+  environment.setAttribute('src', '#kitch_01');
+  B2toK.setAttribute('position', PosOff);
+
+  L27.setAttribute('position', PosOff);
+  L28.setAttribute('position', PosOff);
+  L29.setAttribute('position', PosOff);
+  L30.setAttribute('position', PosOff);
+
+    //navigation
+  KtoB2.setAttribute('position', {
+  x: 0.1 ,
+  y: 0,
+  z: 1
+});
+  KtoH2.setAttribute('position', {
+  x: -3.5 ,
+  y: 0,
+  z: .5
+});
+  KtoP.setAttribute('position', {
+  x: .8 ,
+  y: 0,
+  z: -2.5
+});
+
+//labels
+L22.setAttribute('position', {
+	  x: -4,
+	  y: 2.6,
+	  z: -1});
+
+}
+
+//hallway 1
+function hall1ToDine () {
+  environment.setAttribute('src', '#dine_01');
+  H1toD.setAttribute('position', PosOff);
+  H1toL.setAttribute('position', PosOff);
+  L1.setAttribute('position', PosOff);
+
+    //navigation
+  DtoL.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: -.35
+  });
+  DtoH1.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: 1.45
+  });
+   DtoH2.setAttribute('position', {
+    x:-4,
+    y: 0,
+    z: -.5
+  });
+ DtoB1.setAttribute('position', {
+    x:-.15,
+    y: 0,
+    z: -1.3
+  });
+
+     //labels
+ L6.setAttribute('position', {
+     x: 3,
+     y: 1.1,
+     z: 3
+ });
+
+ L7.setAttribute('position', {
+     x: 2,
+     y: 1.7,
+     z: 3.5
+ });
+
+ L10.setAttribute('position', {
+     x: -3,
+     y: .9,
+     z: 1.1
+ });
+
+ L11.setAttribute('position', {
+     x: -2,
+     y: .9,
+     z: 2.6
+ });
+
+ L13.setAttribute('position', {
+     x: -.45,
+     y: .3,
+     z: 1
+ });
+
+ L14.setAttribute('position', {
+     x: -2.1,
+     y: 2.19,
+     z: -1
+ });
+
+ L15.setAttribute('position', {
+     x: 1.81,
+     y: 2.19,
+     z: -1
+ });
+
+ L16.setAttribute('position', {
+     x: 1.81,
+     y: 1.25,
+     z: -1
+ });
+}
+
+function hall1ToLive () {
+  environment.setAttribute('src', '#live_01');
+  H1toD.setAttribute('position', PosOff);
+  H1toL.setAttribute('position', PosOff);
+  L1.setAttribute('position', PosOff);
+
+    //navigation
+  LtoH1.setAttribute('position', {
+    x:-2.2,
+    y: 0,
+    z: 0
+  });
+  LtoD.setAttribute('position', {
+    x:-1.6,
+    y: 0,
+    z: -2.7
+  });
+
+      //labels
+    L3.setAttribute('position',{
+	x: .7,
+	y: .9,
+	z: 3
+    	});
+    L4.setAttribute('position',{
+	x: 3.45,
+	y: 1.3,
+	z: 1.5
+    	});
+    L5.setAttribute('position',{
+	x: .7,
+	y: 1.2,
+	z: -1.4
+    	});
+
+
+}
+
+//hallway_02
+
+function hall2ToDine () {
+environment.setAttribute('src', '#dine_01');
+H2toD.setAttribute('position',PosOff);
+H2toB.setAttribute('position',PosOff);
+H2toK.setAttribute('position',PosOff);
+
+    //navigation
+DtoL.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: -.35
+  });
+DtoH1.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: 1.45
+  });
+  DtoH2.setAttribute('position', {
+    x:-4,
+    y: 0,
+    z: -.5
+  });
+ DtoB1.setAttribute('position', {
+    x:-.15,
+    y: 0,
+    z: -1.3
+  });
+
+     //labels
+ L6.setAttribute('position', {
+     x: 3,
+     y: 1.1,
+     z: 3
+ });
+
+ L7.setAttribute('position', {
+     x: 2,
+     y: 1.7,
+     z: 3.5
+ });
+
+ L10.setAttribute('position', {
+     x: -3,
+     y: .9,
+     z: 1.1
+ });
+
+ L11.setAttribute('position', {
+     x: -2,
+     y: .9,
+     z: 2.6
+ });
+
+ L13.setAttribute('position', {
+     x: -.45,
+     y: .3,
+     z: 1
+ });
+
+ L14.setAttribute('position', {
+     x: -2.1,
+     y: 2.19,
+     z: -1
+ });
+
+ L15.setAttribute('position', {
+     x: 1.81,
+     y: 2.19,
+     z: -1
+ });
+
+ L16.setAttribute('position', {
+     x: 1.81,
+     y: 1.25,
+     z: -1
+ });
+
+}
+
+function hall2ToBath () {
+environment.setAttribute('src', '#bath_01');
+H2toD.setAttribute('position',PosOff);
+H2toB.setAttribute('position',PosOff);
+H2toK.setAttribute('position',PosOff);
+
+//navigation
+BtoH2.setAttribute('position',{
+x: -.3,
+y: 0,
+z: -1.8
+
+});
+
+//labels
+
+L20.setAttribute('position', {
+x: 2,
+y: 2,
+z: .16
+});
+
+L21.setAttribute('position', {
+    x: .9,
+    y: .7,
+    z: 1.5
+});
+
+
+
+}
+
+function hall2ToKitch () {
+environment.setAttribute('src', '#kitch_01');
+H2toD.setAttribute('position',PosOff);
+H2toB.setAttribute('position',PosOff);
+H2toK.setAttribute('position',PosOff);
+
+KtoB2.setAttribute('position', {
+  x: 0.1 ,
+  y: 0,
+  z: 1
+});
+KtoH2.setAttribute('position', {
+  x: -3.5 ,
+  y: 0,
+  z: .5
+});
+KtoP.setAttribute('position', {
+  x: .8 ,
+  y: 0,
+  z: -2.5
+});
+        //labels
+L22.setAttribute('position', {
+	  x: -4,
+	  y: 2.6,
+	  z: -1});
+
+
+}
+
+//kitchen
+function kitchToBed2 () {
+environment.setAttribute('src', '#bed_02');
+KtoB2.setAttribute('position', PosOff);
+KtoH2.setAttribute('position', PosOff);
+KtoP.setAttribute('position', PosOff);
+
+L22.setAttribute('position', PosOff);
+
+//navigation
+B2toK.setAttribute('position', {
+  x: 0 ,
+  y: 0,
+  z: 1.8
+});
+
+//labels
+L27.setAttribute('position', {
+	  x: -2.5,
+	  y: 2.1,
+	  z: -.1});
+L28.setAttribute('position', {
+	  x: -.4,
+	  y: .5,
+	  z: -2});
+L29.setAttribute('position', {
+	  x: 3,
+	  y: .7,
+	  z: -1});
+L30.setAttribute('position', {
+	  x: 3,
+	  y: 3,
+	  z: 0});
+
+}
+
+function kitchToHall2 (){
+  environment.setAttribute('src', '#hall_02');
+  KtoB2.setAttribute('position', PosOff);
+  KtoH2.setAttribute('position', PosOff);
+  KtoP.setAttribute('position', PosOff);
+
+  L22.setAttribute('position', PosOff);
+
+  H2toD.setAttribute('position',{
+    x: -1.9,
+    y: 0,
+    z: .2
+  });
+
+  H2toB.setAttribute('position',{
+    x: -.1,
+    y: 0,
+    z: -1.2
+  });
+
+  H2toK.setAttribute('position',{
+    x: 1,
+    y: 0,
+    z: -.1
+  });
+}
+
+function kitchToPorch (){
+  environment.setAttribute('src', '#porch_01');
+  KtoB2.setAttribute('position', PosOff);
+  KtoH2.setAttribute('position', PosOff);
+  KtoP.setAttribute('position', PosOff);
+
+  L22.setAttribute('position', PosOff);
+
+  PtoK.setAttribute('position', {
+  x: -1.9,
+  y: 0,
+  z: .3
+});
+  PtoG.setAttribute('position', {
+  x: 2,
+  y: 0,
+  z: 0
+});
+}
+
+//living room
+function liveToHall1 () {
+  environment.setAttribute('src', '#hall_01');
+  LtoH1.setAttribute('position', PosOff);
+  LtoD.setAttribute('position', PosOff);
+  L3.setAttribute('position', PosOff);
+  L4.setAttribute('position', PosOff);
+  L5.setAttribute('position', PosOff);
+
+
+    //navigation
+   H1toL.setAttribute('position',{
+    x: 1,
+    y: 0,
+    z: 0
+  });
+
+  H1toD.setAttribute('position',{
+    x: -.2,
+    y: 0,
+    z: -3
+  });
+
+      //labels
+  L1.setAttribute('position',{
+	x: 1,
+	y: .9,
+	z:	4
+});
+}
+
+function livetoDine () {
+environment.setAttribute('src', '#dine_01');
+LtoH1.setAttribute('position', PosOff);
+LtoD.setAttribute('position', PosOff);
+L3.setAttribute('position', PosOff);
+L4.setAttribute('position', PosOff);
+L5.setAttribute('position', PosOff);
+
+    //navigation
+DtoL.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: -.35
+  });
+DtoH1.setAttribute('position', {
+    x:2.6,
+    y: 0,
+    z: 1.45
+  });
+  DtoH2.setAttribute('position', {
+    x:-4,
+    y: 0,
+    z: -.5
+  });
+ DtoB1.setAttribute('position', {
+    x:-.15,
+    y: 0,
+    z: -1.3
+  });
+
+     //labels
+ L6.setAttribute('position', {
+     x: 3,
+     y: 1.1,
+     z: 3
+ });
+
+ L7.setAttribute('position', {
+     x: 2,
+     y: 1.7,
+     z: 3.5
+ });
+
+ L10.setAttribute('position', {
+     x: -3,
+     y: .9,
+     z: 1.1
+ });
+
+ L11.setAttribute('position', {
+     x: -2,
+     y: .9,
+     z: 2.6
+ });
+
+ L13.setAttribute('position', {
+     x: -.45,
+     y: .3,
+     z: 1
+ });
+
+ L14.setAttribute('position', {
+     x: -2.1,
+     y: 2.19,
+     z: -1
+ });
+
+ L15.setAttribute('position', {
+     x: 1.81,
+     y: 2.19,
+     z: -1
+ });
+
+ L16.setAttribute('position', {
+     x: 1.81,
+     y: 1.25,
+     z: -1
+ });
+
+}
+
+//dinig room
+function dineToLive (){
+environment.setAttribute('src', '#live_01');
+
+DtoL.setAttribute('position', PosOff);
+DtoH1.setAttribute('position', PosOff);
+DtoH2.setAttribute('position', PosOff);
+DtoB1.setAttribute('position', PosOff);
+
+L6.setAttribute('position', PosOff);
+L7.setAttribute('position', PosOff);
+L10.setAttribute('position', PosOff);
+L11.setAttribute('position', PosOff);
+L13.setAttribute('position', PosOff);
+L14.setAttribute('position', PosOff);
+L15.setAttribute('position', PosOff);
+L16.setAttribute('position', PosOff);
+
+    //navigation
+LtoH1.setAttribute('position', {
+    x:-2.2,
+    y: 0,
+    z: 0
+  });
+
+LtoD.setAttribute('position', {
+    x:-1.6,
+    y: 0,
+    z: -2.7
+  });
+
+//labels
+    L3.setAttribute('position',{
+	x: .7,
+	y: .9,
+	z: 3
+    	});
+    L4.setAttribute('position',{
+	x: 3.45,
+	y: 1.3,
+	z: 1.5
+    	});
+    L5.setAttribute('position',{
+	x: .7,
+	y: 1.2,
+	z: -1.4
+    	});
+
+}
+
+function dineToHall1 (){
+environment.setAttribute('src', '#hall_01');
+
+DtoL.setAttribute('position', PosOff);
+DtoH1.setAttribute('position', PosOff);
+DtoH2.setAttribute('position', PosOff);
+DtoB1.setAttribute('position', PosOff);
+
+L6.setAttribute('position', PosOff);
+L7.setAttribute('position', PosOff);
+L10.setAttribute('position', PosOff);
+L11.setAttribute('position', PosOff);
+L13.setAttribute('position', PosOff);
+L14.setAttribute('position', PosOff);
+L15.setAttribute('position', PosOff);
+L16.setAttribute('position', PosOff);
+
+//navigation
+  H1toL.setAttribute('position',{
+    x: 1,
+    y: 0,
+    z: 0
+  });
+
+  H1toD.setAttribute('position',{
+    x: -.2,
+    y: 0,
+    z: -3
+  });
+
+      //labels
+  L1.setAttribute('position',{
+	x: 1,
+	y: .9,
+	z:	4
+});
+
+}
+
+function dineToHall2 (){
+environment.setAttribute('src', '#hall_02');
+
+DtoL.setAttribute('position', PosOff);
+DtoH1.setAttribute('position', PosOff);
+DtoH2.setAttribute('position', PosOff);
+DtoB1.setAttribute('position', PosOff);
+
+L6.setAttribute('position', PosOff);
+L7.setAttribute('position', PosOff);
+L10.setAttribute('position', PosOff);
+L11.setAttribute('position', PosOff);
+L13.setAttribute('position', PosOff);
+L14.setAttribute('position', PosOff);
+L15.setAttribute('position', PosOff);
+L16.setAttribute('position', PosOff);
+
+H2toD.setAttribute('position',{
+    x: -1.9,
+    y: 0,
+    z: .2
+  });
+
+H2toB.setAttribute('position',{
+    x: -.1,
+    y: 0,
+    z: -1.2
+  });
+
+H2toK.setAttribute('position',{
+    x: 1,
+    y: 0,
+    z: -.1
+  });
+}
+
+function dineToBed1 (){
+environment.setAttribute('src', '#bed_01');
+
+DtoL.setAttribute('position', PosOff);
+DtoH1.setAttribute('position', PosOff);
+DtoH2.setAttribute('position', PosOff);
+DtoB1.setAttribute('position', PosOff);
+
+L6.setAttribute('position', PosOff);
+L7.setAttribute('position', PosOff);
+L10.setAttribute('position', PosOff);
+L11.setAttribute('position', PosOff);
+L13.setAttribute('position', PosOff);
+L14.setAttribute('position', PosOff);
+L15.setAttribute('position', PosOff);
+L16.setAttribute('position', PosOff);
+
+    //navigation
+B1toD.setAttribute('position', {
+  x: 0,
+  y: 0,
+  z: 2
+});
+
+    //labels
+    L17.setAttribute('position', {
+	  x: -5,
+	  y: 1.1,
+	  z: 1});
+
+    L18.setAttribute('position', {
+	  x: -5.1,
+	  y: .4,
+	  z: -2});
+
+    L19.setAttribute('position', {
+	  x: 2,
+	  y: .2,
+	  z: -.88});
+
+}
+
+//bath
+
+function bathToHall2 () {
+environment.setAttribute('src', '#hall_02');
+BtoH2.setAttribute('position', PosOff);
+
+L20.setAttribute('position', PosOff);
+L21.setAttribute('position', PosOff);
+
+//navigation
+H2toD.setAttribute('position',{
+    x: -1.9,
+    y: 0,
+    z: .2
+  });
+
+H2toB.setAttribute('position',{
+    x: -.1,
+    y: 0,
+    z: -1.2
+  });
+
+H2toK.setAttribute('position',{
+    x: 1,
+    y: 0,
+    z: -.1
+  });
+
+    //lables
+
+
+}
+
+//function end
+    </script>
+  </body>
+</html>
